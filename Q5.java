@@ -6,12 +6,12 @@ public class Q5 {
 
         System.out.print("Enter number of words: ");
         int T = sc.nextInt(); // number of words
-
+    
         System.out.println("Enter the words:");
         
+        String vowels = "aeiou";
         for (int t = 0; t < T; t++) {
             String word = sc.next();
-            String vowels = "aeiou";
             char[] letters = word.toCharArray();
             boolean isHarmony = true;
 
