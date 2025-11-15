@@ -6,7 +6,7 @@ public class q1 {
         Scanner input = new Scanner(System.in);
         int q;
 
-        System.out.println("Please enter the number of inqueries:");
+        System.out.println("Please enter the number of inquiries:");
         q = input.nextInt();
 
         for (int i = 1; i <= q; i++) {
@@ -29,3 +29,4 @@ public class q1 {
         input.close();
     }
 }
+
