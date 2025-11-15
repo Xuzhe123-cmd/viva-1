@@ -7,10 +7,9 @@ public class Q5 {
         System.out.print("Enter number of words: ");
         int T = sc.nextInt(); // number of words
     
-        System.out.println("Enter the words:");
-        
         String vowels = "aeiou";
         for (int t = 0; t < T; t++) {
+            System.out.printf("Enter word %d: ", t + 1);
             String word = sc.next();
             char[] letters = word.toCharArray();
             boolean isHarmony = true;
@@ -32,9 +31,9 @@ public class Q5 {
             }
 
             if (isHarmony) {
-                System.out.println("Harmony");
+                System.out.println("  Result: Harmony");
             } else {
-                System.out.println("Chaos");
+                System.out.println("  Result: Chaos");
             }
         }
 
