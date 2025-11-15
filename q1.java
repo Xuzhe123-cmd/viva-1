@@ -12,7 +12,7 @@ public class q1 {
         for (int i = 1; i <= q; i++) {
             int a, b, n;
             System.out.printf(
-                    "Please enther the %d quiries in the format: [Initial Value] [Multiplier Seed] [Charm Length]\n",
+                    "Please enter the %d queries in the format: [Initial Value] [Multiplier Seed] [Charm Length]\n",
                     i);
             a = input.nextInt();
             b = input.nextInt();
@@ -29,4 +29,5 @@ public class q1 {
         input.close();
     }
 }
+
 
