@@ -15,7 +15,7 @@ o Row i (where i is from 1 to H) will consist of:
 2. Numbers ascending from 1 up to i.
 3. Numbers descending from i−1 back down to 1.
  */
-package q3;
+// package q3;
 
 import java.util.Scanner;
 
@@ -44,7 +44,7 @@ public class Q3 {
             if (S == 'A') {
                 for (int j = 1; j <= H; j++) {
                     for (int k = 1; k <= j; k++) {
-                        System.out.print(k);
+                        System.out.print(j);
                     }
                     System.out.println();
                 }
@@ -55,7 +55,7 @@ public class Q3 {
                 for (int j = 1; j <= H; j++) {
 
                     // Setting up the spacing
-                    for (int k = 0; k <= (H - j); k++) {
+                    for (int k = 0; k < (H - j); k++) {
                         System.out.print(" ");
                     }
 
@@ -74,6 +74,5 @@ public class Q3 {
                 
             }
         }
-    }
-
+    }   
 }
