@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LuckyDigit {
+public class Q2 {
 
     public static void main(String[] args) {
         // Setup object import
