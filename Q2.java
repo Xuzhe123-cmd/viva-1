@@ -1,63 +1,68 @@
 import java.util.Scanner;
 
-public class Q2 {
+public class q2 {
 
     public static void main(String[] args) {
-        // Setup object import
         Scanner sc = new Scanner(System.in);
-        // Receive the new inputs through an integer q
+
+        // Receive the number of inquiries
         int q = sc.nextInt();
 
-        // Create two arrays to store the analyzeDigit and LuckyDigit values
         int[] analyzeDigit = new int[q];
         int[] LuckyDigit = new int[q];
 
-        // Loop to store the inputs in the respective arrays
+        // Store inputs
         for (int i = 0; i < q; i++) {
-            analyzeDigit[i] = sc.nextInt(); // Input for analyzeDigit
-            LuckyDigit[i] = sc.nextInt(); // Input for LuckyDigit
+            analyzeDigit[i] = sc.nextInt();
+            LuckyDigit[i] = sc.nextInt();
         }
-        // Loop to analyze each digit in the analyzeDigit array
+
+        // Analyze each case
         for (int i = 0; i < q; i++) {
-            // Initialize counters for Lucky, Zero, Even, and Odd digits
             int LuckyCount = 0;
             int ZeroCount = 0;
             int EvenCount = 0;
             int OddCount = 0;
-            int Digit;
+
             int num = analyzeDigit[i];
             int LuckyDigitValue = LuckyDigit[i];
 
-            // Analyze each digit of the current analyzeDigit number
+            // Special rule: If N = 0, it has one digit '0'
+            if (num == 0) {
+                if (LuckyDigitValue == 0) LuckyCount++;
+                else ZeroCount++;
+            }
+
+            // Process all digits
             while (num > 0) {
-                // Extract the last digit through modulus operation
-                Digit = num % 10; // Get the last digit
-                // Check and increment the respective counters based on the digit value
+                int Digit = num % 10;
+
+                // Apply category rules (Lucky has highest priority)
                 if (Digit == LuckyDigitValue) {
                     LuckyCount++;
-                } else if (Digit == 0) {
+                } else if (Digit == 0 && LuckyDigitValue != 0) {
                     ZeroCount++;
                 } else if (Digit % 2 == 0) {
                     EvenCount++;
                 } else {
                     OddCount++;
                 }
-                num = num / 10;
 
+                num /= 10;
             }
 
-            // Determine and print the classification based on the counts
-            if (OddCount > EvenCount && OddCount > LuckyCount && OddCount > ZeroCount) {
-                System.out.println("ENERGETIC");
-            } else if (EvenCount > LuckyCount && EvenCount > ZeroCount) {
-                System.out.println("BALANCED");
-            } else if (LuckyCount > ZeroCount) {
+            // Determine Signature
+            if (LuckyCount > ZeroCount && LuckyCount > EvenCount && LuckyCount > OddCount) {
                 System.out.println("LUCKY");
+            } else if (EvenCount > LuckyCount && EvenCount > OddCount && EvenCount > ZeroCount) {
+                System.out.println("BALANCED");
+            } else if (OddCount > LuckyCount && OddCount > EvenCount && OddCount > ZeroCount) {
+                System.out.println("ENERGETIC");
             } else {
                 System.out.println("NEUTRAL");
             }
-
         }
 
+        sc.close();
     }
 }
